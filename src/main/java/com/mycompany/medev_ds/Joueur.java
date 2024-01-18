@@ -17,5 +17,21 @@ public class Joueur {
         nom=name;
         MaListBateau=new ArrayList<>();
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public ArrayList<Bateau> getMaListBateau() {
+        return MaListBateau;
+    }
+
+    public void setMaListBateau(ArrayList<Bateau> MaListBateau) {
+        this.MaListBateau = MaListBateau;
+    }
     
 }

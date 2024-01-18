@@ -38,7 +38,19 @@ public class Grille {
     public void Affichage(int tour){
         if (1+tour%2==1){
             System.out.println("Grille des bateaux de J1 | Grille des tirs de J1");
-            
+            for (int i = 0; i < largeur; i++) {
+            System.out.print(i + " ");
+            for (int j = 0; j < longueur; j++) {
+                Point2D point = new Point2D(j, i);
+                if (J1.getMaListBateau().contains(point)) {
+                    System.out.print("B ");  // Afficher un bateau
+                } else if (tirs.contains(point)) {
+                    System.out.print("X ");  // Afficher un tir
+                } else {
+                    System.out.print(". ");  // Espace vide
+                }
+            }
+            System.out.println();
         }
     }
 }

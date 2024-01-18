@@ -12,9 +12,10 @@ public class Bateau {
 
     public int longueur;
     public int largeur;
+    public String nom;
     public ArrayList<Point2D>ListPos;
 
-    public Bateau(int lon, int larg) {
+    public Bateau(int lon, int larg, String nom) {
         longueur = lon;
         largeur = larg;
         ListPos=new ArrayList<>();
@@ -36,12 +37,6 @@ public class Bateau {
         this.largeur = largeur;
     }
 
-    public Point2D getPos() {
-        return pos;
-    }
-
-    public void setPos(Point2D pos) {
-        this.pos = pos;
-    }
+ 
     
 }

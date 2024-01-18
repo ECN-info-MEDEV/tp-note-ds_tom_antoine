@@ -43,8 +43,8 @@ public class Grille {
 
     /**
      *
-     * @param lon
-     * @param larg
+     * @param lon longueur de la grille
+     * @param larg largeur de la grille
      */
     public Grille(int lon, int larg){
         longueur=lon;
@@ -57,8 +57,8 @@ public class Grille {
  
     /**
      *
-     * @param b
-     * @param J
+     * @param b bateau à placer
+     * @param J Joueur qui place
      */
     public void Placement(Bateau b, Joueur J) {
         boolean place = false;
@@ -128,8 +128,8 @@ public class Grille {
 
     /**
      *
-     * @param positions
-     * @param J
+     * @param positions cases potentielles du bateau placé par le joueur
+     * @param J Joueur qui place
      * @return
      */
     public boolean PositionLibre(ArrayList<Point2D> positions, Joueur J) {
@@ -153,7 +153,7 @@ public class Grille {
 
     /**
      *
-     * @param t
+     * @param t nombre de tour
      */
     public void Action(int t){
         
@@ -207,7 +207,7 @@ public class Grille {
   
     /**
      *
-     * @param tour
+     * @param tour nombre de tour
      * @return
      */
     public int TourDeJeu(int tour) {
@@ -235,7 +235,7 @@ public class Grille {
 
     /**
      *
-     * @param tour
+     * @param tour nombre de tour
      */
     public void Affichage(int tour) {
         if (tour % 2 == 1) {

@@ -21,8 +21,8 @@ public class Point2D {
     
     /**
      *
-     * @param x
-     * @param y
+     * @param x ligne
+     * @param y colonne
      */
     public Point2D(int x, int y) {
         this.x = x;

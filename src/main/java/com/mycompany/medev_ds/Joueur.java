@@ -11,18 +11,18 @@ import java.util.ArrayList;
 public class Joueur {
 
     /**
-     *
+     *Nom du bateau
      */
     public String nom;
 
     /**
-     *
+     * Liste des bateaux placés
      */
     public ArrayList<Bateau> MaListBateau;
     
     /**
      *
-     * @param name
+     * @param name nom du joueur
      */
     public Joueur(String name) {
         nom=name;
@@ -39,7 +39,7 @@ public class Joueur {
 
     /**
      *
-     * @param nom
+     * @param nom nom du joueur
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -55,7 +55,7 @@ public class Joueur {
 
     /**
      *
-     * @param MaListBateau
+     * @param MaListBateau liste des bateaux placés
      */
     public void setMaListBateau(ArrayList<Bateau> MaListBateau) {
         this.MaListBateau = MaListBateau;

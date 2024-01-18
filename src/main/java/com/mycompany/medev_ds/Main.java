@@ -10,6 +10,10 @@ package com.mycompany.medev_ds;
  */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         //initialisation de la grille et des joueurs
         Grille grille= new Grille(5,5);
@@ -36,8 +40,7 @@ public class Main {
         int tour =0;
         int finJeu=0;
         while(finJeu==0){
-            grille.TourDeJeu(tour);
-            tour++;
+            tour=grille.TourDeJeu(tour);
             finJeu=grille.FinJeu();
         }
             System.out.println("Félicitation, victoire du joueur "+finJeu);

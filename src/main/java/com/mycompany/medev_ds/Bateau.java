@@ -11,31 +11,51 @@ import java.util.ArrayList;
 public class Bateau {
 
     /**
+
      *longueur du bateau
+
+     *
+
      */
     public int longueur;
 
     /**
+
      *largeur du bateau
+
+     *
+
      */
     public int largeur;
 
     /**
+
      *nom du bateau
+
+     *
+
      */
     public String nom;
 
     /**
+
      *Liste des cases prisent par le bateau
+
+     *
+
      */
     public ArrayList<Point2D>ListPos;
 
     /**
      *
+
      * @param lon longueur du bateau
      * @param larg largeur du bateau
      * @param nom nom du bateau
      */ 
+
+  
+
     public Bateau(int lon, int larg, String nom) {
         longueur = lon;
         largeur = larg;
@@ -53,7 +73,11 @@ public class Bateau {
 
     /**
      *
+
      * @param longueur longueur du bateau
+
+
+
      */
     public void setLongueur(int longueur) {
         this.longueur = longueur;
@@ -61,7 +85,11 @@ public class Bateau {
 
     /**
      *
+
      * @return largeur du bateau
+
+
+
      */
     public int getLargeur() {
         return largeur;
@@ -69,7 +97,9 @@ public class Bateau {
 
     /**
      *
+
      * @param largeur largeur du bateau
+
      */
     public void setLargeur(int largeur) {
         this.largeur = largeur;
@@ -77,7 +107,10 @@ public class Bateau {
 
     /**
      *
+
      * @return nom du bateau
+
+
      */
     public String getNom() {
         return nom;
@@ -93,15 +126,20 @@ public class Bateau {
 
     /**
      *
+
      * @return liste des cases prisent par le bateau
+
+     * @return
+
      */
     public ArrayList<Point2D> getListPos() {
         return ListPos;
     }
 
     /**
-     *
+
      * @param ListPos liste des cases prisent par le bateau
+
      */
     public void setListPos(ArrayList<Point2D> ListPos) {
         this.ListPos = ListPos;

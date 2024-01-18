@@ -18,6 +18,7 @@ public class Bateau {
     public Bateau(int lon, int larg, String nom) {
         longueur = lon;
         largeur = larg;
+        this.nom=nom;
         ListPos=new ArrayList<>();
     }
 

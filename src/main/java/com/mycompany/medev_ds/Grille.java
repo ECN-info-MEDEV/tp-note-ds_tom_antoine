@@ -24,94 +24,90 @@ public class Grille {
         TirJ1= new ArrayList<>();
         TirJ2= new ArrayList<>();
     }
-    
-    public void Placement(Bateau b,Joueur J){
-     boolean place=false;
-     ArrayList<Point2D> ListPosPot= new ArrayList<>();
-    while(place==false){
-        ListPosPot= new ArrayList<>();
-    
-         Scanner sc = new Scanner(System.in);
-        System.out.println("Donnez la ligne d'une position extreme du bateau"+b.nom+"de taille"+b.longueur+"1-5)");
-        String tp = sc.nextLine();
-        while (!tp.equals("[0-4]")) {
-            System.out.println("Donnez la ligne d'une autre position extreme du bateau"+b.nom+"de taille"+b.longueur+": 0-4");
-            tp = sc.nextLine();
-        }
-        
-                 Scanner sc3 = new Scanner(System.in);
-        System.out.println("Donnez la ligne d'une position extreme du bateau"+b.nom+"de taille"+b.longueur+"0-4)");
-        String tp3 = sc.nextLine();
-        while (!tp.equals("[0-4]")) {
-            System.out.println("Donnez la ligne d'une autre position extreme du bateau"+b.nom+"de taille"+b.longueur+": 1-5");
-            tp3 = sc3.nextLine();
-        }
-        
-        int ligne = Integer.parseInt(tp);
-        int colonne = Integer.parseInt(tp3);
-        ListPosPot.add(new Point2D(ligne, colonne));
-        
-        Scanner sc2 = new Scanner(System.in);
-        System.out.println("Voulez vous que le bateau soit positionné en Haut/Bas/Gauche/Droite par rapport à la position extrème");
-        String tp2 = sc.nextLine();
-        while (!tp2.equals("Haut")&&!tp2.equals("Bas")&&!tp2.equals("Gauche")&&!tp2.equals("Droite")) {
+ 
+    public void Placement(Bateau b, Joueur J) {
+        boolean place = false;
+        ArrayList<Point2D> ListPosPot = new ArrayList<>();
+        while (place == false) {
+            ListPosPot = new ArrayList<>();
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Donnez la ligne d'une position extreme du bateau " + b.nom + " de taille " + b.longueur + " : (0-4)");
+            String tp = sc.nextLine();
+            int ligne = Integer.parseInt(tp);
+            while (0>ligne && ligne>4) {
+                System.out.println("Donnez la ligne d'une autre position extreme du bateau " + b.nom + " de taille " + b.longueur + " : (0-4");
+                tp = sc.nextLine();
+            }
+
+            Scanner sc3 = new Scanner(System.in);
+            System.out.println("Donnez la colonne d'une position extreme du bateau " + b.nom + " de taille " + b.longueur + " : (0-4)");
+            String tp3 = sc.nextLine();
+            int colonne = Integer.parseInt(tp3);
+            while (0>colonne && colonne>4) {
+                System.out.println("Donnez la colonne d'une autre position extreme du bateau " + b.nom + " de taille " + b.longueur + " : (0-4)");
+                tp3 = sc3.nextLine();
+            }
+            ListPosPot.add(new Point2D(ligne, colonne));
+
+            Scanner sc2 = new Scanner(System.in);
             System.out.println("Voulez vous que le bateau soit positionné en Haut/Bas/Gauche/Droite par rapport à la position extrème");
-            tp2 = sc2.nextLine();
-           
-           
-           if(tp2.equals("Haut")){
+            String tp2 = sc.nextLine();
+            while (!tp2.equals("Haut") && !tp2.equals("Bas") && !tp2.equals("Gauche") && !tp2.equals("Droite")) {
+                System.out.println("Voulez vous que le bateau soit positionné en Haut/Bas/Gauche/Droite par rapport à la position extrème");
+                tp2 = sc2.nextLine();}
 
-               for(int i=1;i<b.longueur;i++){
-                   ligne=ligne+1;
-                   ListPosPot.add(new Point2D(ligne, colonne));
-               }}
-               if(tp2.equals("Bas")){
-               for(int i=1;i<b.longueur;i++){
-                   ligne=ligne-1;
-                   ListPosPot.add(new Point2D(ligne, colonne));
-               }}
-               if(tp2.equals("Gauche")){
-               for(int i=1;i<b.longueur;i++){
-                   colonne=colonne-1;
-                   ListPosPot.add(new Point2D(ligne, colonne));
-               }   
-               }
-               if(tp2.equals("Droite")){
-               for(int i=1;i<b.longueur;i++){
-                   colonne=colonne+1;
-                   ListPosPot.add(new Point2D(ligne, colonne));
-               }   
-               }
-               place= PositionLibre(ListPosPot,J); }  
-           }
-    b.ListPos=ListPosPot;
-    J.MaListBateau.add(b);
+                if (tp2.equals("Haut")) {
 
-            
-        }
-        
-        
+                    for (int i = 1; i < b.longueur; i++) {
+                        ligne = ligne + 1;
+                        ListPosPot.add(new Point2D(ligne, colonne));
+                    }
+                }
+                if (tp2.equals("Bas")) {
+                    for (int i = 1; i < b.longueur; i++) {
+                        ligne = ligne - 1;
+                        ListPosPot.add(new Point2D(ligne, colonne));
+                    }
+                }
+                if (tp2.equals("Gauche")) {
+                    for (int i = 1; i < b.longueur; i++) {
+                        colonne = colonne - 1;
+                        ListPosPot.add(new Point2D(ligne, colonne));
+                    }
+                }
+                if (tp2.equals("Droite")) {
+                    for (int i = 1; i < b.longueur; i++) {
+                        colonne = colonne + 1;
+                        ListPosPot.add(new Point2D(ligne, colonne));
+                    }
+                }
+                place = PositionLibre(ListPosPot, J);
+                if  (place==false){
+                    System.out.println("Ce n'est pas possible");
+                }
+            }
+        b.ListPos = ListPosPot;
+        J.MaListBateau.add(b);
+    }
 
-    
-    
+    public boolean PositionLibre(ArrayList<Point2D> positions, Joueur J) {
 
-    
-    public boolean PositionLibre(ArrayList<Point2D> positions, Joueur J){
-        
-       for (Bateau bateau : J.MaListBateau) {
+        for (Bateau bateau : J.MaListBateau) {
             for (Point2D positionBateau : bateau.ListPos) {
                 if (positions.contains(positionBateau)) {
                     return false; // La position n'est pas libre
                 }
             }
         }
-       for (Point2D point : positions){
-           if(point.x>4 || point.x<0 ||point.y>4 || point.y<0){
-               return false;
-           }}
+        for (Point2D point : positions) {
+            if (point.x > 4 || point.x < 0 || point.y > 4 || point.y < 0) {
+                return false;
+            }
+        }
         return true; // Toutes les positions sont libres
-    
-}
+    }
+
     public void Action(int t){
         
     }

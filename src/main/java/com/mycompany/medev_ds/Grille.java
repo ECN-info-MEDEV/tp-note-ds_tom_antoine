@@ -65,8 +65,47 @@ public class Grille {
     public void Action(int t){
         
     }
-    public void FinJeu(){
-        
+
+    public int FinJeu() {
+        boolean gagne = true;
+        while (gagne) {
+            for (Bateau b : J2.getMaListBateau()) {
+                for (Point2D pos : b.getListPos()) {
+                    boolean positionToucher = false;
+                    for (Point2D pos2 : TirJ1) {
+                        if (pos.getX() == pos2.getX() && pos.getY() == pos2.getY()) {
+                            positionToucher = true;
+                        }
+                    }
+                    if (positionToucher=false){
+                        gagne=false;
+                    }
+                }
+            }
+        }
+        if (gagne){
+            return 1;
+        }
+        gagne = true;
+        while (gagne) {
+            for (Bateau b : J1.getMaListBateau()) {
+                for (Point2D pos : b.getListPos()) {
+                    boolean positionToucher = false;
+                    for (Point2D pos2 : TirJ2) {
+                        if (pos.getX() == pos2.getX() && pos.getY() == pos2.getY()) {
+                            positionToucher = true;
+                        }
+                    }
+                    if (positionToucher=false){
+                        gagne=false;
+                    }
+                }
+            }
+        }
+        if (gagne){
+            return 2;
+        }
+        return 0;
     }
   
     public int TourDeJeu(int tour) {

@@ -35,8 +35,22 @@ public class Bateau {
 
     public void setLargeur(int largeur) {
         this.largeur = largeur;
+    } 
+
+    public String getNom() {
+        return nom;
     }
 
- 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public ArrayList<Point2D> getListPos() {
+        return ListPos;
+    }
+
+    public void setListPos(ArrayList<Point2D> ListPos) {
+        this.ListPos = ListPos;
+    }
     
 }

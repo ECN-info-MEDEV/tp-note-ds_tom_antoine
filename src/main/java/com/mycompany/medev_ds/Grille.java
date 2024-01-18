@@ -23,4 +23,22 @@ public class Grille {
         TirJ1= new ArrayList<>();
         TirJ2= new ArrayList<>();
     }
+    public void TourDeJeu(){
+        
+    }
+    public void Placement(){
+        
+    }
+    public void Action(){
+        
+    }
+    public void FinJeu(){
+        
+    }
+    public void Affichage(int tour){
+        if (1+tour%2==1){
+            System.out.println("Grille des bateaux de J1 | Grille des tirs de J1");
+            
+        }
+    }
 }

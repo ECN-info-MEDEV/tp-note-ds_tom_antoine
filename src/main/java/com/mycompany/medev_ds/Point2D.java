@@ -9,7 +9,15 @@ package com.mycompany.medev_ds;
  * @author Utilisateur
  */
 public class Point2D {
+
+    /**
+     *
+     */
     public int x;
+
+    /**
+     *
+     */
     public int y;
     
     /**

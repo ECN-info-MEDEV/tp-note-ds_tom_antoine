@@ -10,12 +10,42 @@ import java.util.Scanner;
  * @author Utilisateur
  */
 public class Grille {
+
+    /**
+     *Longueur de la grille
+     */
     public int longueur;
+
+    /**
+     *Largeur de la grille
+     */
     public int largeur;
+
+    /**
+     *Joueur qui commence la partie
+     */
     public Joueur J1;
+
+    /**
+     *Liste des Tirs que le joueur 1 a pu faire dans la partie
+     */
     public  ArrayList<Point2D> TirJ1;
+
+    /**
+     *Joueur qui joue en second
+     */
     public Joueur J2;
+
+    /**
+     *Liste des Tirs que le joueur 2 a pu faire dans la partie
+     */
     public  ArrayList<Point2D> TirJ2;
+
+    /**
+     *
+     * @param lon
+     * @param larg
+     */
     public Grille(int lon, int larg){
         longueur=lon;
         largeur=larg;
@@ -25,6 +55,11 @@ public class Grille {
         TirJ2= new ArrayList<>();
     }
  
+    /**
+     *
+     * @param b
+     * @param J
+     */
     public void Placement(Bateau b, Joueur J) {
         boolean place = false;
         ArrayList<Point2D> ListPosPot = new ArrayList<>();
@@ -91,14 +126,20 @@ public class Grille {
         J.MaListBateau.add(b);
     }
 
+    /**
+     *
+     * @param positions
+     * @param J
+     * @return
+     */
     public boolean PositionLibre(ArrayList<Point2D> positions, Joueur J) {
 
         for (Bateau bateau : J.MaListBateau) {
             for (Point2D positionBateau : bateau.ListPos) {
-                for(Point2D pos : positions){
-                if (pos.getX()==positionBateau.getX() && pos.getY()==positionBateau.getY()) {
-                    return false; // La position n'est pas libre
-                }
+                for (Point2D pos : positions) {
+                    if (pos.getX() == positionBateau.getX() && pos.getY() == positionBateau.getY()) {
+                        return false; // La position n'est pas libre
+                    }
                 }
             }
         }
@@ -110,10 +151,18 @@ public class Grille {
         return true; // Toutes les positions sont libres
     }
 
+    /**
+     *
+     * @param t
+     */
     public void Action(int t){
         
     }
 
+    /**
+     *
+     * @return
+     */
     public int FinJeu() {
         boolean gagne = true;
         while (gagne) {
@@ -156,6 +205,11 @@ public class Grille {
         return 0;
     }
   
+    /**
+     *
+     * @param tour
+     * @return
+     */
     public int TourDeJeu(int tour) {
         
 
@@ -179,7 +233,10 @@ public class Grille {
         return tour + 1;
     }
 
-    
+    /**
+     *
+     * @param tour
+     */
     public void Affichage(int tour) {
         if (tour % 2 == 1) {
             System.out.println("Grille des bateaux de J1 :");

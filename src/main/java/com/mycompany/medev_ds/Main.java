@@ -21,11 +21,17 @@ public class Main {
         Bateau DestroyerJ2 = new Bateau(3,1,"destroyer");
         //placement des bateaux
         grille.Placement(PorteAvionsJ1,grille.J1);
+        grille.Affichage(1);
         grille.Placement(CuirasseJ1,grille.J1);
+        grille.Affichage(1);
         grille.Placement(DestroyerJ1,grille.J1);
+        grille.Affichage(1);
         grille.Placement(PorteAvionsJ2,grille.J2);
+        grille.Affichage(2);
         grille.Placement(CuirasseJ2,grille.J2);
+        grille.Affichage(2);
         grille.Placement(DestroyerJ2,grille.J2);
+        grille.Affichage(2);
         //Jouer la partie
         int tour =0;
         int finJeu=0;

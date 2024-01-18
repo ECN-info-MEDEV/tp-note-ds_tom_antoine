@@ -60,13 +60,13 @@ public class Grille {
                 if (tp2.equals("Haut")) {
 
                     for (int i = 1; i < b.longueur; i++) {
-                        ligne = ligne + 1;
+                        ligne = ligne - 1;
                         ListPosPot.add(new Point2D(ligne, colonne));
                     }
                 }
                 if (tp2.equals("Bas")) {
                     for (int i = 1; i < b.longueur; i++) {
-                        ligne = ligne - 1;
+                        ligne = ligne + 1;
                         ListPosPot.add(new Point2D(ligne, colonne));
                     }
                 }
@@ -95,8 +95,10 @@ public class Grille {
 
         for (Bateau bateau : J.MaListBateau) {
             for (Point2D positionBateau : bateau.ListPos) {
-                if (positions.contains(positionBateau)) {
+                for(Point2D pos : positions){
+                if (pos.getX()==positionBateau.getX() && pos.getY()==positionBateau.getY()) {
                     return false; // La position n'est pas libre
+                }
                 }
             }
         }
@@ -179,14 +181,14 @@ public class Grille {
 
     
     public void Affichage(int tour) {
-        if (1 + tour % 2 == 1) {
+        if (tour % 2 == 1) {
             System.out.println("Grille des bateaux de J1 :");
             for (int i = 0; i < largeur; i++) {
                 for (int j = 0; j < longueur; j++) {
                     int occupe = 0;
                     for (Bateau b : J1.getMaListBateau()) {
                         for (Point2D pos : b.getListPos()) {
-                            if (pos.getX() == j && pos.getY() == i) {
+                            if (pos.getX() == i && pos.getY() == j) {
                                 System.out.print("B");
                                 occupe = 1;
                             }
@@ -205,13 +207,13 @@ public class Grille {
                     for (Point2D pos2 : TirJ1) {
                         for (Bateau b : J2.getMaListBateau()) {
                             for (Point2D pos : b.getListPos()) {
-                                if (pos.getX() == pos2.getX() && pos.getY() == pos2.getY() && pos2.getX()==j && pos2.getY()==i) {
+                                if (pos.getX() == pos2.getX() && pos.getY() == pos2.getY() && pos2.getX()==i && pos2.getY()==j) {
                                     System.out.print("x");
                                     occupe = 1;
                                 }
                             }
                         }
-                        if (occupe==0 && pos2.getX()==j && pos2.getY()==i){
+                        if (occupe==0 && pos2.getX()==i && pos2.getY()==j){
                             System.out.print("o");
                         }
                     }
@@ -228,7 +230,7 @@ public class Grille {
                     int occupe = 0;
                     for (Bateau b : J2.getMaListBateau()) {
                         for (Point2D pos : b.getListPos()) {
-                            if (pos.getX() == j && pos.getY() == i) {
+                            if (pos.getX() == i && pos.getY() == j) {
                                 System.out.print("B");
                                 occupe = 1;
                             }
@@ -247,13 +249,13 @@ public class Grille {
                     for (Point2D pos2 : TirJ2) {
                         for (Bateau b : J1.getMaListBateau()) {
                             for (Point2D pos : b.getListPos()) {
-                                if (pos.getX() == pos2.getX() && pos.getY() == pos2.getY() && pos2.getX()==j && pos2.getY()==i) {
+                                if (pos.getX() == pos2.getX() && pos.getY() == pos2.getY() && pos2.getX()==i && pos2.getY()==j) {
                                     System.out.print("x");
                                     occupe = 1;
                                 }
                             }
                         }
-                        if (occupe==0 && pos2.getX()==j && pos2.getY()==i){
+                        if (occupe==0 && pos2.getX()==i && pos2.getY()==j){
                             System.out.print("o");
                         }
                     }

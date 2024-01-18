@@ -25,23 +25,43 @@ public class Grille {
         TirJ2= new ArrayList<>();
     }
     
-    public void Placement(Bateau b){
-        
+    public void Placement(Bateau b,Joueur J){
+        ArrayList<Point2D> ListPosPot= new ArrayList<>();
     
          Scanner sc = new Scanner(System.in);
-        System.out.println("Donnez une position extreme du bateau"+b.nom+"de taille"+b.longueur+"(Chiffre:1-5,Chiffre:1-5)");
+        System.out.println("Donnez la ligne d'une position extreme du bateau"+b.nom+"de taille"+b.longueur+"1-5)");
         String tp = sc.nextLine();
-        while (!tp.equals("\\([1-5],[1-5]\\)")) {
-            System.out.println("Donnez une autre position extreme du bateau"+b.nom+"de taille"+b.longueur+"(Chiffre:1-5,Chiffre:1-5)");
+        while (!tp.equals("[1-5]")) {
+            System.out.println("Donnez la ligne d'une autre position extreme du bateau"+b.nom+"de taille"+b.longueur+": 1-5");
             tp = sc.nextLine();
         }
+        
+                 Scanner sc3 = new Scanner(System.in);
+        System.out.println("Donnez la ligne d'une position extreme du bateau"+b.nom+"de taille"+b.longueur+"1-5)");
+        String tp3 = sc.nextLine();
+        while (!tp.equals("[1-5]")) {
+            System.out.println("Donnez la ligne d'une autre position extreme du bateau"+b.nom+"de taille"+b.longueur+": 1-5");
+            tp3 = sc3.nextLine();
+        }
+        
+        int ligne1 = Integer.parseInt(tp);
+        int ligne2 = Integer.parseInt(tp3);
+        ListPosPot.add(new Point2D(ligne1, ligne2));
+        
         Scanner sc2 = new Scanner(System.in);
         System.out.println("Voulez vous que le bateau soit positionné en Haut/Bas/Gauche/Droite par rapport à la position extrème");
         String tp2 = sc.nextLine();
-        while (!tp2.equals("\\([1-5],[1-5]\\)")) {
-            System.out.println("Donnez une autre position extreme du bateau"+b.nom+"de taille"+b.longueur+"(Chiffre:1-5,Chiffre:1-5)");
-            tp2 = sc.nextLine();
+        while (!tp2.equals("Haut")&&!tp2.equals("Bas")&&!tp2.equals("Gauche")&&!tp2.equals("Droite")) {
+            System.out.println("Voulez vous que le bateau soit positionné en Haut/Bas/Gauche/Droite par rapport à la position extrème");
+            tp2 = sc2.nextLine();
+           int ligne3 = Integer.parseInt(tp2); 
+           if(tp2.equals("Haut")){
+               for(i=0;i<b.longueur-1;i++)
+           }
+            
         }
+        
+        
     }
     public void Action(int t){
         
